@@ -24,6 +24,10 @@ docker run --network=host -itv `pwd`:/root/app kbaylosis/flutter-stable
 
 ### Releasing
 ```
-docker tag <image-sha / name> kbaylosis/flutter-stable
-docker push kbaylosis/flutter-stable:latest
+docker build -t kbaylosis/flutter-stable . && docker push kbaylosis/flutter-stable:latest
+```
+
+### Multiplatform Releasing
+```
+docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag kbaylosis/flutter-stable:buildx-latest .
 ```

@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 ubuntu:22.04
+FROM dart:stable AS appbuilder
 WORKDIR /root
 
 # Setup apt packages
@@ -17,4 +17,6 @@ RUN apt-get update && \
 
 # # Setup flutter
 RUN mkdir tools && \
-    git clone --depth 1 --single-branch https://github.com/flutter/flutter.git -b stable
+    git clone --depth 1 --single-branch https://github.com/flutter/flutter.git -b 3.3.10
+RUN echo "export PATH=$HOME/flutter/bin:$PATH" >> .bashrc
+RUN $HOME/flutter/bin/flutter
