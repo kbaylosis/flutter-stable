@@ -17,6 +17,6 @@ RUN apt-get update && \
 
 # # Setup flutter
 RUN mkdir tools && \
-    git clone --depth 1 --single-branch https://github.com/flutter/flutter.git -b 3.3.10
+    git clone --depth 1 --single-branch https://github.com/flutter/flutter.git -b 3.7.0
 RUN echo "export PATH=$HOME/flutter/bin:$PATH" >> .bashrc
 RUN $HOME/flutter/bin/flutter
